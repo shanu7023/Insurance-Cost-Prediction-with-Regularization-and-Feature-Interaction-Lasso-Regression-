@@ -1,54 +1,141 @@
-📌 Project Overview
-This project aims to predict the individual medical costs billed by health insurance. Predictive modeling in healthcare is crucial for helping companies set premiums and helping individuals plan for future expenses.
+# 💰 Medical Cost Prediction using Lasso Regression
 
-In this project, I utilize Lasso Regression to handle feature selection and LassoCV to optimize the model's performance by finding the best regularization strength.
+## 📌 Project Overview
 
-📊 The Dataset
-The dataset includes several key features:
+This project aims to predict individual medical insurance costs using machine learning techniques. Accurate prediction helps insurance companies set premiums and assists individuals in financial planning.
 
-Age/Sex/BMI: Physical characteristics.
+---
 
-Children: Number of dependents.
+## 📊 Dataset
 
-Smoker: Whether the individual smokes (a high-impact feature).
+The dataset includes:
 
-Region: The beneficiary's residential area in the US.
+* Age, Sex, BMI (physical attributes)
+* Children (number of dependents)
+* Smoker (high impact feature)
+* Region (categorical location feature)
 
-🛠️ Feature Engineering
-To improve accuracy, I implemented specific transformations:
+Target Variable:
 
-One-Hot Encoding: Converted categorical region data into numerical format.
+* Charges (medical cost)
 
-Interaction Terms: Created age_smoker and bmi_smoker. These terms are vital because the cost of smoking isn't just a flat fee; its impact increases significantly as age and BMI increase.
+---
 
-🤖 The Model: Lasso Regression
-I chose Lasso (Least Absolute Shrinkage and Selection Operator) because:
+## 🛠️ Feature Engineering
 
-Regularization: It prevents the model from overfitting to the training data.
+* One-Hot Encoding:
 
-Automatic Feature Selection: Lasso can shrink the coefficients of less important features to zero, effectively simplifying the model.
+  * Converted categorical variables (region) into numerical format
 
-Hyperparameter Tuning
-Using LassoCV with 5-fold Cross-Validation, I tested a range of alpha values from 0.001 to 100 to find the mathematical "sweet spot" for the penalty term.
+* Interaction Features:
 
-📈 Performance Results
-Best Alpha Found: 0.001
+  * `age_smoker`
+  * `bmi_smoker`
 
-Mean Squared Error (MSE): 20922599.87103596
+These features capture the combined effect of smoking with age and BMI, improving model performance.
 
-R² Score: 0.8652317499151699
+---
 
-## 📉 Visualizations
+## 🤖 Model Used: Lasso Regression
 
-### Hyperparameter Tuning: Alpha vs. MSE
-The plot below illustrates how the model's Mean Squared Error (MSE) changes as the regularization strength (**Alpha**) increases.
+### Why Lasso?
 
+* Performs regularization to reduce overfitting
+* Automatically selects important features by shrinking less important coefficients to zero
 
+---
 
+## 🔍 Hyperparameter Tuning
+
+* Used **LassoCV** with 5-fold cross-validation
+* Tested alpha values from 0.001 to 100
+* Automatically selected optimal alpha
+
+---
+
+## 📈 Model Performance
+
+* Best Alpha: 0.001
+* R² Score: 0.865
+* Mean Squared Error (MSE): 20,922,599
+
+---
+
+## 📉 Visualization
+
+### Alpha vs MSE Curve
+
+This graph shows how model error changes with different alpha values.
 
 ![Lasso Regression Alpha vs MSE](alpha_vs_mse_plot.png) <img width="556" height="428" alt="image" src="https://github.com/user-attachments/assets/34b33ccd-4878-49d6-bcbd-a4bd67543427" />
 
-"As Alpha increases, we observe the penalty simplifying the model. The optimal Alpha was found to be 0.001 , where the test MSE was at its lowest."
 
-**Key Takeaway:** 
-By visualizing the error curve, we can identify the "elbow" point where the model achieves the best balance between bias and variance. The **LassoCV** implementation automatically selected the Alpha value that minimized this error, ensuring the most robust predictions on unseen data.
+* Low alpha → complex model (risk of overfitting)
+* High alpha → simpler model (risk of underfitting)
+* Optimal alpha balances both
+
+As Alpha increases, we observe the penalty simplifying the model. The optimal Alpha was found to be 0.001 , where the test MSE was at its lowest.
+
+---
+
+## 📌 Key Insights
+
+* Smoking status has a significant impact on insurance cost
+* Interaction features improved model performance
+* Lasso successfully reduced irrelevant feature influence
+
+---
+
+## 🛠️ Tech Stack
+
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* Seaborn
+
+---
+
+## 🚀 Future Improvements
+
+* Compare with Linear Regression and Ridge Regression
+* Use advanced models (XGBoost)
+* Feature scaling optimization
+* Deploy model using Streamlit
+
+---
+
+## 📁 Project Structure
+
+* insurance.csv
+* Lasso Regression.ipynb
+* README.md
+* alpha_vs_mse_plot.png
+
+---
+
+## 👨‍💻 Author
+
+Shanu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
