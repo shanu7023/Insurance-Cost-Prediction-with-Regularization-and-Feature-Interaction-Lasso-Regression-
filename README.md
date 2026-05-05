@@ -37,3 +37,18 @@ Best Alpha Found: 0.001
 Mean Squared Error (MSE): 20922599.87103596
 
 R² Score: 0.8652317499151699
+
+## 📉 Visualizations
+
+### Hyperparameter Tuning: Alpha vs. MSE
+The plot below illustrates how the model's Mean Squared Error (MSE) changes as the regularization strength (**Alpha**) increases.
+
+
+
+
+![Lasso Regression Alpha vs MSE](alpha_vs_mse_plot.png) <img width="556" height="428" alt="image" src="https://github.com/user-attachments/assets/34b33ccd-4878-49d6-bcbd-a4bd67543427" />
+
+"As Alpha increases, we observe the penalty simplifying the model. The optimal Alpha was found to be 0.001 , where the test MSE was at its lowest."
+
+**Key Takeaway:** 
+By visualizing the error curve, we can identify the "elbow" point where the model achieves the best balance between bias and variance. The **LassoCV** implementation automatically selected the Alpha value that minimized this error, ensuring the most robust predictions on unseen data.
